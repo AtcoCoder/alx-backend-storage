@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     print("{} logs\nMethods:".format(log_count))
     print("\tmethod GET: {}".format(get_count))
-    print("\tmethod pOST: {}".format(post_count))
+    print("\tmethod POST: {}".format(post_count))
     print("\tmethod PUT: {}".format(put_count))
     print("\tmethod PATCH: {}".format(patch_count))
     print("\tmethod DELETE: {}".format(delete_count))

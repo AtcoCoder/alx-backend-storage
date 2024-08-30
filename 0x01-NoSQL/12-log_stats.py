@@ -15,19 +15,10 @@ if __name__ == "__main__":
     delete_count = log_collection.count_documents({"method": "DELETE"})
     get_status = log_collection.count_documents(get_status)
 
-    first_line = "{} logs".format(log_count)
-    second_line = "Methods:"
-    get_requests = "\tmethod GET: {}".format(get_count)
-    post_requests = "\tmethod POST: {}".format(post_count)
-    put_requests = "\tmethod PUT: {}".format(put_count)
-    patch_requests = "\tmethod PATCH: {}".format(patch_count)
-    delete_requests = "\tmethod DELETE: {}".format(delete_count)
-    get_status = "{} status check".format(get_status)
-    print("{}\n{}".format(first_line, second_line))
-    request_counts = f"""{get_requests}
-    {post_requests}
-    {put_requests}
-    {patch_requests}
-    {delete_requests}"""
-    print(request_counts)
-    print(get_status)
+    print("{} logs\nMethods:".format(log_count))
+    print("\tmethod GET: {}".format(get_count))
+    print("\tmethod pOST: {}".format(post_count))
+    print("\tmethod PUT: {}".format(put_count))
+    print("\tmethod PATCH: {}".format(patch_count))
+    print("\tmethod DELETE: {}".format(delete_count))
+    print("{} status check".format(get_status))

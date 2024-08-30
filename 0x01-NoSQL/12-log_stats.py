@@ -22,13 +22,12 @@ if __name__ == "__main__":
     put_requests = "\tmethod PUT: {}".format(put_count)
     patch_requests = "\tmethod PATCH: {}".format(patch_count)
     delete_requests = "\tmethod DELETE: {}".format(delete_count)
-    get_status = "{} status check".format(get_status_count)
-
-    print(f"""{first_line}
-    {second_line}
-    {get_requests}
+    get_status = "{} status check".format(get_status)
+    print("{}\n{}".format(first_line, second_line))
+    request_counts = f"""{get_requests}
     {post_requests}
     {put_requests}
     {patch_requests}
-    {delete_requests}
-    {get_status}""")
+    {delete_requests}"""
+    print(request_counts)
+    print(get_status)

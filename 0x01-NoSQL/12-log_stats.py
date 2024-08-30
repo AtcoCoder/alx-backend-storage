@@ -16,7 +16,7 @@ if __name__ == "__main__":
     get_status = log_collection.count_documents(get_status)
 
     first_line = "{} logs".format(log_count)
-    second_line = "Method:"
+    second_line = "Methods:"
     get_requests = "\tmethod GET: {}".format(get_count)
     post_requests = "\tmethod POST: {}".format(post_count)
     put_requests = "\tmethod PUT: {}".format(put_count)

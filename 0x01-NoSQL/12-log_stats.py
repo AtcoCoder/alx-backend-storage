@@ -4,16 +4,23 @@ from pymongo import MongoClient
 
 client = MongoClient('mongodb://127.0.0.1:27017')
 log_collection = client.logs.nginx
+get_status = {"method": "GET", "path": "/status"}
 log_count = log_collection.count_documents({})
+get_count = log_collection.count_documents({"method": "GET"})
+post_count = log_collection.count_documents({"method": "POST"})
+put_count = log_collection.count_documents({"method": "PUT"})
+patch_count = log_collection.count_documents({"method": "PATCH"})
+delete_count = log_collection.count_documents({"method": "DELETE"})
+get_status = log_collection.count_documents(get_status)
 
 first_line = "{} logs".format(log_count)
 second_line = "Method:"
-get_requests = "\tmethod GET: {}".format(log_collection.count_documents({"method": "GET"}))
-post_requests = "\tmethod POST: {}".format(log_collection.count_documents({"method": "POST"}))
-put_requests = "\tmethod PUT: {}".format(log_collection.count_documents({"method": "PUT"}))
-patch_requests = "\tmethod PATCH: {}".format(log_collection.count_documents({"method": "PATCH"}))
-delete_requests = "\tmethod DELETE: {}".format(log_collection.count_documents({"method": "DELETE"}))
-get_status = "{} status check".format(log_collection.count_documents({"method": "GET", "path": "/status"}))
+get_requests = "\tmethod GET: {}".format(get_count)
+post_requests = "\tmethod POST: {}".format(post_count)
+put_requests = "\tmethod PUT: {}".format(put_count)
+patch_requests = "\tmethod PATCH: {}".format(patch_count)
+delete_requests = "\tmethod DELETE: {}".format(delete_count)
+get_status = "{} status check".format(get_status_count)
 
 print(f"""{first_line}
 {second_line}
@@ -22,5 +29,4 @@ print(f"""{first_line}
 {put_requests}
 {patch_requests}
 {delete_requests}
-{get_status}"""
-)
+{get_status}""")
